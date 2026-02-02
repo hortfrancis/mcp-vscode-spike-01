@@ -24,6 +24,23 @@ server.tool(
   }
 );
 
+server.tool(
+  "get_joke",
+  "Get a silly joke.",
+  {},
+  async () => {
+    log("[get_joke] called");
+    return {
+      content: [
+        {
+          type: "text",
+          text: "Why did the crow sit on the telephone wire? Because he wanted to make a long-distance cawllll!",
+        },
+      ],
+    };
+  }
+);
+
 // Start stdio transport
 const transport = new StdioServerTransport();
 await server.connect(transport);
